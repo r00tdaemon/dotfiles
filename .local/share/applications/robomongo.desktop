@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Robo3t
+Icon=robomongo
+Exec=/home/ujjwal/robo3t-1.2.1/bin/robo3t
+Type=Application
+Categories=Development;
+Terminal=false
+StartupNotify=true
+
+Name[en_US]=Robo3t

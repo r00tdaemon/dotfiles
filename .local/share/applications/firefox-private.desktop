@@ -1,0 +1,23 @@
+[Desktop Entry]
+Categories=Network;WebBrowser;
+Comment[en_US]=Browse the Web
+Comment=Browse the Web
+Exec=/usr/lib/firefox/firefox --private-window %u
+GenericName[en_US]=
+GenericName=
+Icon=firefox-aurora
+Keywords=web;browser;internet;
+MimeType=text/html;application/xml;application/xhtml+xml;application/vnd.mozilla.xul+xml;
+Name[en_US]=Firefox private
+Name=Firefox private
+Path=
+StartupNotify=true
+StartupWMClass=Firefox
+Terminal=false
+TerminalOptions=
+Type=Application
+Version=1.0
+X-DBUS-ServiceName=
+X-DBUS-StartupType=
+X-KDE-SubstituteUID=false
+X-KDE-Username=

@@ -1,0 +1,14 @@
+[Desktop Entry]
+Comment=
+Exec=chromium --incognito
+GenericName=Web Browser
+Icon=chromium
+Name=Chromium private
+NoDisplay=false
+Path[$e]=
+StartupNotify=true
+Terminal=0
+TerminalOptions=
+Type=Application
+X-KDE-SubstituteUID=false
+X-KDE-Username=
