@@ -269,7 +269,9 @@ for_window [class="Kmix"] floating enable; border none
 for_window [class="Klipper"] floating enable; border none
 for_window [class="Plasmoidviewer"] floating enable; border none
 for_window [class="plasmawindowed"] floating enable; border none
-for_window [title="Calendar"] floating enable; border none
+
+
+for_window [class="Gtk-recordMyDesktop"] floating enable; border none
 
 gaps inner 5
 gaps outer 0

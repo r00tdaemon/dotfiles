@@ -20,7 +20,6 @@ border-bottom-size = 5
 
 bottom = false
 monitor = eDP-1
-wm-restack = none
 override-redirect = false
 
 ;-------;
@@ -37,7 +36,7 @@ font-3 = "Font Awesome 5 Brands:pixelsize=14;3"
 ;--------;
 
 background = #cc2d2d2d
-foreground = #33ef83
+foreground = ${xrdb:color7}
 border-color = 0
 
 ;---------------;
@@ -49,9 +48,9 @@ padding-left = 2
 padding-right = 2
 module-margin = 1.5
 
-modules-left = volume backlight battery mpd network
+modules-left = volume backlight battery wlan
 modules-center = i3
-modules-right = wlan cpu memory date time
+modules-right = network cpu memory date time
 
 tray-position = none
 tray-detached = true
@@ -74,7 +73,7 @@ label-urgent-foreground = ${xrdb:color1}
 [module/time]
 type = internal/date
 interval = 1.0
-date =  %H:%M
+date =  %{F-}%I:%M %p
 label-foreground = ${xrdb:color6}
 
 [module/date]
@@ -87,6 +86,7 @@ type = custom/script
 exec = date +"%e %B - %A"
 interval = 5
 format-prefix = " "
+format-prefix-foreground = ${xrdb:color5}
 click-left = ~/.config/polybar/scripts/calendar.sh 2>&1 > /dev/null
 
 
@@ -129,6 +129,7 @@ animation-charging-3 = 
 animation-charging-4 = 
 ; Framerate in milliseconds
 animation-charging-framerate = 750
+animation-charging-foreground = ${xrdb:color2}
 
 [module/volume]
 type = internal/volume
@@ -140,7 +141,7 @@ ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
 
-format-volume-foreground = ${xrdb:color6}
+ramp-volume-foreground = ${xrdb:color6}
 format-muted-foreground = ${xrdb:color1}
 
 [module/mpd]
@@ -191,24 +192,24 @@ interface = wlp5s0
 
 interval = 5
 
-label-connected =  %essid%
-label-disconnected =  Not Connected
+label-connected =  %{F-}%essid%
+label-disconnected =  %{F-}Not Connected
 
 label-connected-foreground = ${xrdb:color2}
 label-disconnected-foreground = ${xrdb:color1}
 
 [module/cpu]
 type = internal/cpu
-label =  %percentage%%
+label =  %{F-}%percentage%%
 label-foreground = ${xrdb:color3}
 
 [module/memory]
 type = internal/memory
-label =  %gb_used%
-label-foreground = ${xrdb:color4}
+label =  %{F-}%gb_used%
+label-foreground = ${xrdb:color2}
 
 [module/network]
 type = internal/network
 interface = wlp5s0
-label-connected = %{F#f2464a} %downspeed% %{F-}| %{F#4da2f7} %upspeed%
+label-connected = %{F#f2464a} %{F-}%downspeed% | %{F#4da2f7} %{F-}%upspeed%
 
