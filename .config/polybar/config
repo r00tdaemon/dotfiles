@@ -195,7 +195,7 @@ interval = 5
 label-connected =  %{F-}%essid%
 label-disconnected =  %{F-}Not Connected
 
-label-connected-foreground = ${xrdb:color2}
+label-connected-foreground = ${xrdb:color4}
 label-disconnected-foreground = ${xrdb:color1}
 
 [module/cpu]
