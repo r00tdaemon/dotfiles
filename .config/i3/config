@@ -145,6 +145,7 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 assign [class="^konsole$"] → $ws1
 assign [class="^Firefox$"] → $ws2
 assign [class="^jetbrains-pycharm$"] → $ws3
+assign [title="^Burp Suite Community Edition"] → $ws3
 
 
 # reload the configuration file
