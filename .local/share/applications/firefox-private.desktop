@@ -1,3 +1,4 @@
+#!/usr/bin/env xdg-open
 [Desktop Entry]
 Categories=Network;WebBrowser;
 Comment[en_US]=Browse the Web
