@@ -19,7 +19,7 @@ border-bottom-size = 5
 ;----------;
 
 bottom = false
-monitor = eDP-1
+monitor = eDP1
 override-redirect = false
 
 ;-------;
