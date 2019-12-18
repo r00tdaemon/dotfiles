@@ -290,3 +290,4 @@ no_focus [window_type="notification"]
 gaps inner 5
 #gaps outer 0
 #smart_borders on
+

@@ -37,9 +37,16 @@ set tabstop=4 expandtab shiftwidth=4 smarttab
 " Line numbers
 set number
 
-"split navigations
+" Split navigations
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+" Highlighting stuff
+"set cc=+1,+2,+3,+4,+5
+"hi ColorColumn guibg=red
+highlight OverLength ctermbg=red ctermfg=white guibg=red
+autocmd OptionSet textwidth,tw :execute 'match OverLength /\%'.&textwidth.'v.\+/'
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
