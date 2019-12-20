@@ -1,18 +1,26 @@
+/*
+ * TODO - Close button on hover, round shadows on hover
+ *        change tabbar, navbar color according to the page
+ *        find a way to use tab hover transition with `--tab-min-width: auto`;
+ */
 @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 
 /* Remove tab bar */
-
+/*
 #main-window:not([customizing]):not([tabsintitlebar="true"]) #TabsToolbar {
   visibility: collapse;
 }
-#navigator-toolbox {
-  margin-top: 1px;
-}
+
+#navigator-toolbox { border: none !important;}
 
 #toolbar-menubar[inactive="true"] + #TabsToolbar {
   visibility: collapse !important;
 }
+*/
 
+.toolbar-items {
+    color: var(--toolbar-non-lwt-textcolor) !important;
+}
 
 /* Tab center redux */
 
@@ -20,9 +28,11 @@
     --toolbar-bgcolor: #31363b !important;
 }
 
+/*
 #tabbrowser-tabs {
     visibility: collapse !important;
 }
+*/
 
 #sidebar-box[sidebarcommand="_0ad88674-2b41-4cfb-99e3-e206c74a0076_-sidebar-action"] {
     overflow: hidden;
@@ -77,14 +87,14 @@
 #main-window[privatebrowsingmode="temporary"] #tabbrowser-tabs, #main-window[inFullscreen] #tabbrowser-tabs {
     visibility: visible !important;
 }
-#main-window[inFullscreen][inDOMFullscreen] #tabbrowser-tabs {
+/* #main-window[inFullscreen][inDOMFullscreen] #tabbrowser-tabs {
     visibility: collapse !important;
-}
+} */
 #main-window[inFullscreen] #sidebar-box[sidebarcommand="_0ad88674-2b41-4cfb-99e3-e206c74a0076_-sidebar-action"] {
     display: none !important;
 }
 #navigator-toolbox > toolbar:not(#TabsToolbar):not(#toolbar-menubar), .browserContainer > findbar, #browser-bottombox, #toolbar-menubar {
-    background-color: #31363b !important;
+/*     background-color: #31363b !important; */
 }
 #nav-bar-customization-target {
     margin: 0px 2px;
@@ -114,27 +124,281 @@
 }
 
 
-/********************************************************************************************************************************************************/
+/*******************************************************/
 
+/* Scrollbar */
+/*toolbarbutton#alltabs-button {
+    -moz-binding: url("userChrome.xml#js");
+}
+*/
+
+/********************************************************/
+/* https://github.com/turing753/minimal-functional-fox */
+window#main-window {
+    --color-fg   : #fefefe;
+	--color-bg   : #001238;
+	--color-0    : #43c9cf;
+	--color-1    : #d0d01e;
+	--color-2    : #fc6b89;
+	--color-3    : #bc6ccc;
+	--color-4    : #f79130;
+	--color-5    : #ead2ef;
+    
+	--color-tab-active-end       : var(--color-0);
+	--color-tab-active-start     : var(--color-2);
+    --color-tab-hover-end        : var(--color-2);
+	--color-tab-hover-start      : var(--color-4);
+	--color-tab-normal-end       : var(--color-bg);
+	--color-tab-normal-start     : var(--color-bg);
+	--color-tab-pinned-active    : var(--color-2);
+	--color-tab-pinned-normal    : var(--color-5);
+	--color-urlbar-buttons-bg    : #fc6b89;
+	--color-urlbar-text          : var(--color-5);
+
+	/* Easy way to tweak most params */
+/* 	--gap-between-tabs                   : 10px; */
+/* 	--margin-around-urlbar               : 9px; */
+/* 	--margin-before-back-button          : 9px; */
+/* 	--padding-around-searchengine-opts   : 10px; */
+/* 	--pinned-tab-favicon-dim             : 27px; */
+/* 	--tab-height                         : 40px; */
+    --tab-corner                         : 40px;
+/* 	--tabs-container-height              : 135px; */
+/* 	--tab-text-font                      : "System-ui", sans-serif; */
+/* 	--tab-text-font-size                 : 14pt; */
+/* 	--margin-before-tab-list             : 16px; */
+/* 	--margin-after-tab-list              : -17px; */
+/* 	--urlbar-text-font                   : "mononoki Nerd Font", sans-serif; */
+/* 	--urlbar-text-size                   : 15pt; */
+/* 	--urlbar-text-weight                 : 600; */
+/* 	--urlbar-list-width                  : 50%; */
+/* 	--urlbar-container-margin            : 12px; */
+
+
+	/* ******************************************************************* */
+
+/* 	--arrowpanel-background: var(--color-bg) !important; */
+/* 	--arrowpanel-border-color: var(--color-bg) !important; */
+/* 	--arrowpanel-color: var(--color-fg) !important; */
+/* 	--arrowpanel-dimmed-even-further: rgba(249, 249, 250, .2); */
+/* 	--arrowpanel-dimmed-further: rgba(249, 249, 250, .15); */
+/* 	--arrowpanel-dimmed: rgba(249, 249, 250, .1); */
+
+/* 	--autocomplete-popup-background: var(--color-bg) !important; */
+/* 	--autocomplete-popup-color: var(--color-fg) !important; */
+/* 	--autocomplete-popup-highlight-background: var(--color-bg) !important; */
+
+/* 	--backbutton-active-background: var(--color-fg) !important; */
+/* 	--backbutton-background: var(--color-fg) !important; */
+/* 	--backbutton-border-color: var(--color-bg) !important; */
+/* 	--backbutton-hover-background: var(--color-fg) !important; */
+
+/* 	--chrome-content-separator-color: var(--color-bg) !important; */
+/* 	--chrome-content-separator-color: var(--color-bg) !important; */
+
+/* 	--downloads-item-details-opacity: 0.6; */
+/* 	--downloads-item-font-size-factor: 0.9; */
+/* 	--downloads-item-height: 5.5em; */
+
+/* 	--drag-drop-transition-duration: .3s; */
+
+/* 	--in-content-button-background-active: var(--color-bg) !important; */
+/* 	--in-content-button-background-hover: var(--color-bg) !important; */
+/* 	--lwt-accent-color: var(--color-fg) !important; */
+/* 	--lwt-text-color: var(--color-fg) !important; */
+/* 	--lwt-toolbar-field-background-color: var(--color-bg) !important; */
+/* 	--lwt-toolbar-field-color: var(--color-bg) !important; */
+/* 	--lwt-toolbar-field-color: var(--color-fg) !important; */
+/* 	--lwt-toolbarbutton-icon-fill: var(--color-5) !important; */
+
+/* 	--panel-disabled-color: var(--color-0) !important; */
+	--panel-separator-color: var(--color-bg) !important;
+
+/* 	--tab-min-height: 33px; */
+/* 	--tabs-top-border-width: 1px; */
+
+	--toolbar-bgcolor: var(--color-bg) !important;
+	--toolbar-bgimage: none;
+	--toolbar-color: var(--color-fg) !important;
+	--toolbar-non-lwt-bgimage: var(--color-bg) !important;
+	--toolbarbutton-active-background: var(--color-bg) !important;
+	--toolbarbutton-focus-outline: var(--color-bg) !important;
+	--toolbarbutton-height: 0;
+	--toolbarbutton-hover-background: var(--color-bg) !important;
+/* 	--toolbarbutton-hover-transition-duration: 150ms; */
+	--toolbarbutton-icon-fill-opacity: 1;
+/* 	--toolbarbutton-inner-padding: 12px !important; */
+/* 	--toolbarbutton-outer-padding: 4px !important; */
+
+	--urlbar-popup-action-color: var(--color-fg) !important;
+	--urlbar-popup-url-color: var(--color-fg) !important;
+	--urlbar-separator-color: var(--color-bg) !important;
+	--urlbar-separator-color: var(--color-bg) !important;
+}
+
+/*
+======================================================================
+* Rules for urlbar + navbar buttons etc
+======================================================================
+*/
+
+#TabsToolbar{
+    background-color: var(--color-bg) !important;
+}
+
+/* This positions the tabs under the navaigator container */
+#titlebar {
+	-moz-box-ordinal-group: 3 !important;
+}
+
+.urlbar-history-dropmarker {
+    display: none;
+}
+
+.toolbarbutton-1 {
+	color: inherit !important;
+	fill: var(--color-fg) !important;
+	fill-opacity: 1 !important;
+}
+
+
+#navigator-toolbox {
+	--tabs-border-color: var(--color-bg) !important;
+	background-color: var(--color-bg) !important;
+	border: none !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: var(--tabs-container-height); /*This controls the height of the container that holds the tabs*/
+    color: var(--toolbar-non-lwt-textcolor) !important;
+}
+
+
+#back-button {
+	list-style-image: url("left-arrow.svg") !important;
+	margin-left: var(--margin-before-back-button) !important;
+	opacity: 1 !important;
+}
+
+#forward-button {
+	list-style-image: url("right-arrow.svg") !important;
+	opacity: 1 !important;
+}
+
+.titlebar-spacer {
+	display: none !important;
+}
+
+
+/*
+======================================================================
+* Rules for Tabs
+======================================================================
+*/
+.tab-line,
+.tab-background,
+.tabbrowser-tab::before,
+.tabbrowser-tab::after {
+	display: none;
+}
+
+.tabbrowser-tab .tab-close-button{
+    opacity: 0;
+    visibility: collapse !important;
+    transition: all 0.2s ease-in !important;
+}
+
+.tab-loading-burst {
+	border-radius: var(--tab-corner) !important;
+}
+
+.tabbrowser-tab {
+	margin-inline-end: var(--gap-between-tabs) !important;
+	--tab-line-color: none !important;
+	background-image: linear-gradient(to left, var(--color-tab-normal-start), var(--color-tab-normal-end)) !important;
+	border-radius: var(--tab-corner) !important;
+    margin: 0px 2px 0px !important;
+    transition: all 200ms ease-in-out !important;
+    color: var(--color-bg) !important;
+}
+
+.tabbrowser-tab .tab-icon-image {
+    display: inline-block !important;
+    margin: 0 !important;
+}
+
+.tabbrowser-tab:hover {
+/* 	background-image: linear-gradient(77deg, var(--color-tab-hover-start), var(--color-tab-hover-end)) !important; */
+	border-radius: var(--tab-corner) !important;
+}
+
+.tabbrowser-tab[selected="true"] {
+	background-image: linear-gradient(77deg, var(--color-tab-active-start), var(--color-tab-active-end)) !important;
+/* 	border-width: 2px !important; */
+/*     border-style: solid; */
+/*     border-color: var(--color-fg) !important; */
+}
+
+.tabbrowser-tab:hover .tab-close-button {
+    visibility: visible !important;
+    opacity: 1 !important;
+    transition: all 0.2s ease-in !important;
+}
+
+.tabbrowser-tab[selected=true] .tab-icon-image,
+.tabbrowser-tab:not([selected=true]):hover .tab-icon-image {
+    margin-right: 5px !important;;
+}
+
+.tabbrowser-tab:not([selected="true"]) {
+    background-image: linear-gradient(77deg, var(--color-tab-hover-start), var(--color-tab-hover-end)) !important;
+/* 	border-width: 2px !important; */
+/*     border-style: solid; */
+/*     border-color: var(--color-5) !important; */
+	border-radius: var(--tab-corner);
+    -moz-box-flex: 0 !important;
+    --tab-min-width: 35px;
+}
+
+.tabbrowser-tab:not([selected="true"]):hover {
+    --tab-min-width: 200px !important;
+}
+
+.private-browsing-indicator {
+    display: none;
+}
+
+#PanelUI-button {
+    margin-inline-start: 0px !important;;
+    border-inline-start: 0px !important;;
+    padding-inline-start: 0px !important;;
+}
+/* 
+.tabbrowser-tab[selected=true] .tab-label-container {
+	display: initial;
+} */
+
+
+/********************************************************************************************************************************************************/
+/* https://github.com/moamenk/Firefox-Minimal-Responsive-Theme */
 /* Contextual toolbar buttons, only show on hover */
 
 
 :root:not([customizing]) #nav-bar toolbarbutton
  {
-    margin-left: -28px !important;
+    margin-left: -28px !important; 
     opacity: 0 !important;
     transform: scale(.85, .85) !important;
     pointer-events: none !important;
-    transition: all 100ms var(--animation-easing-function) !important;
+    transition: all 500ms var(--animation-easing-function) !important;
 }
 
 :root:not([customizing]) :hover > #nav-bar toolbarbutton,
 :root:not([customizing]) #navigator-toolbox:focus-within #nav-bar toolbarbutton,
 :root:not([customizing]) :hover > #titlebar toolbarbutton {
     transform: scale(1, 1) !important;
-opacity:1 !important;
-margin-left:0 !important;
-pointer-events: auto !important;
+    opacity:1 !important;
+    margin-left:0 !important;
+    pointer-events: auto !important;
 }
 
 /* Transparent addressbar */
@@ -149,6 +413,7 @@ pointer-events: auto !important;
 #urlbar, .searchbar-textbox {
   border: none !important;
   box-shadow: none !important;
+  background-color: transparent !important
 }
 
 #nav-bar {
@@ -162,9 +427,3 @@ pointer-events: auto !important;
     background-color: transparent !important;
 }
 
-
-/* Scrollbar */
-/*toolbarbutton#alltabs-button {
-    -moz-binding: url("userChrome.xml#js");
-}
-*/
