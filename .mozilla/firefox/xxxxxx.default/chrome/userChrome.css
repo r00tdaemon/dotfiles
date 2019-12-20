@@ -1,18 +1,21 @@
 @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 
 /* Remove tab bar */
-
+/*
 #main-window:not([customizing]):not([tabsintitlebar="true"]) #TabsToolbar {
   visibility: collapse;
 }
-#navigator-toolbox {
-  margin-top: 1px;
-}
+
+#navigator-toolbox { border: none !important;}
 
 #toolbar-menubar[inactive="true"] + #TabsToolbar {
   visibility: collapse !important;
 }
+*/
 
+.toolbar-items {
+    color: var(--toolbar-non-lwt-textcolor);
+}
 
 /* Tab center redux */
 
@@ -115,7 +118,7 @@
 
 
 /********************************************************************************************************************************************************/
-
+/* https://github.com/moamenk/Firefox-Minimal-Responsive-Theme */
 /* Contextual toolbar buttons, only show on hover */
 
 
@@ -149,6 +152,7 @@ pointer-events: auto !important;
 #urlbar, .searchbar-textbox {
   border: none !important;
   box-shadow: none !important;
+  background-color: var(--toolbar-bgcolor) !important
 }
 
 #nav-bar {
@@ -161,10 +165,13 @@ pointer-events: auto !important;
 /*     color: #ebdbb2 !important; */
     background-color: transparent !important;
 }
-
+/*******************************************************/
 
 /* Scrollbar */
 /*toolbarbutton#alltabs-button {
     -moz-binding: url("userChrome.xml#js");
 }
 */
+
+/********************************************************/
+/* https://github.com/turing753/minimal-functional-fox */
