@@ -14,7 +14,7 @@
 */
 
 .toolbar-items {
-    color: var(--toolbar-non-lwt-textcolor);
+    color: var(--toolbar-non-lwt-textcolor) !important;
 }
 
 /* Tab center redux */
@@ -87,7 +87,7 @@
     display: none !important;
 }
 #navigator-toolbox > toolbar:not(#TabsToolbar):not(#toolbar-menubar), .browserContainer > findbar, #browser-bottombox, #toolbar-menubar {
-    background-color: #31363b !important;
+/*     background-color: #31363b !important; */
 }
 #nav-bar-customization-target {
     margin: 0px 2px;
@@ -117,6 +117,250 @@
 }
 
 
+/*******************************************************/
+
+/* Scrollbar */
+/*toolbarbutton#alltabs-button {
+    -moz-binding: url("userChrome.xml#js");
+}
+*/
+
+/********************************************************/
+/* https://github.com/turing753/minimal-functional-fox */
+window#main-window {
+    --color-fg   : #fefefe;
+	--color-bg   : #282a36;
+	--color-0    : #43c9cf;
+	--color-1    : #d0d01e;
+	--color-2    : #fc6b89;
+	--color-3    : #bc6ccc;
+	--color-4    : #f79130;
+	--color-5    : #ead2ef;
+    
+	--color-tab-active-end       : var(--color-4);
+	--color-tab-active-start     : var(--color-2);
+    --color-tab-hover-end        : var(--color-0);
+	--color-tab-hover-start      : var(--color-3);
+	--color-tab-normal-end       : var(--color-bg);
+	--color-tab-normal-start     : var(--color-bg);
+	--color-tab-pinned-active    : var(--color-2);
+	--color-tab-pinned-normal    : var(--color-5);
+	--color-urlbar-buttons-bg    : #fc6b89;
+	--color-urlbar-text          : var(--color-5);
+
+	/* Easy way to tweak most params */
+/* 	--gap-between-tabs                   : 10px; */
+/* 	--margin-around-urlbar               : 9px; */
+/* 	--margin-before-back-button          : 9px; */
+/* 	--padding-around-searchengine-opts   : 10px; */
+/* 	--pinned-tab-favicon-dim             : 27px; */
+/* 	--tab-height                         : 40px; */
+    --tab-corner                         : 40px;
+/* 	--tabs-container-height              : 135px; */
+/* 	--tab-text-font                      : "System-ui", sans-serif; */
+/* 	--tab-text-font-size                 : 14pt; */
+/* 	--margin-before-tab-list             : 16px; */
+/* 	--margin-after-tab-list              : -17px; */
+/* 	--urlbar-text-font                   : "mononoki Nerd Font", sans-serif; */
+/* 	--urlbar-text-size                   : 15pt; */
+/* 	--urlbar-text-weight                 : 600; */
+/* 	--urlbar-list-width                  : 50%; */
+/* 	--urlbar-container-margin            : 12px; */
+
+
+	/* ******************************************************************* */
+
+/* 	--arrowpanel-background: var(--color-bg) !important; */
+/* 	--arrowpanel-border-color: var(--color-bg) !important; */
+/* 	--arrowpanel-color: var(--color-fg) !important; */
+/* 	--arrowpanel-dimmed-even-further: rgba(249, 249, 250, .2); */
+/* 	--arrowpanel-dimmed-further: rgba(249, 249, 250, .15); */
+/* 	--arrowpanel-dimmed: rgba(249, 249, 250, .1); */
+
+/* 	--autocomplete-popup-background: var(--color-bg) !important; */
+/* 	--autocomplete-popup-color: var(--color-fg) !important; */
+/* 	--autocomplete-popup-highlight-background: var(--color-bg) !important; */
+
+/* 	--backbutton-active-background: var(--color-fg) !important; */
+/* 	--backbutton-background: var(--color-fg) !important; */
+/* 	--backbutton-border-color: var(--color-bg) !important; */
+/* 	--backbutton-hover-background: var(--color-fg) !important; */
+
+/* 	--chrome-content-separator-color: var(--color-bg) !important; */
+/* 	--chrome-content-separator-color: var(--color-bg) !important; */
+
+/* 	--downloads-item-details-opacity: 0.6; */
+/* 	--downloads-item-font-size-factor: 0.9; */
+/* 	--downloads-item-height: 5.5em; */
+
+/* 	--drag-drop-transition-duration: .3s; */
+
+/* 	--in-content-button-background-active: var(--color-bg) !important; */
+/* 	--in-content-button-background-hover: var(--color-bg) !important; */
+/* 	--lwt-accent-color: var(--color-fg) !important; */
+/* 	--lwt-text-color: var(--color-fg) !important; */
+/* 	--lwt-toolbar-field-background-color: var(--color-bg) !important; */
+/* 	--lwt-toolbar-field-color: var(--color-bg) !important; */
+/* 	--lwt-toolbar-field-color: var(--color-fg) !important; */
+/* 	--lwt-toolbarbutton-icon-fill: var(--color-5) !important; */
+
+/* 	--panel-disabled-color: var(--color-0) !important; */
+	--panel-separator-color: var(--color-bg) !important;
+
+/* 	--tab-min-height: 33px; */
+/* 	--tabs-top-border-width: 1px; */
+
+	--toolbar-bgcolor: var(--color-bg) !important;
+	--toolbar-bgimage: none;
+	--toolbar-color: var(--color-fg) !important;
+	--toolbar-non-lwt-bgimage: var(--color-bg) !important;
+	--toolbarbutton-active-background: var(--color-bg) !important;
+	--toolbarbutton-focus-outline: var(--color-bg) !important;
+	--toolbarbutton-height: 0;
+	--toolbarbutton-hover-background: var(--color-bg) !important;
+/* 	--toolbarbutton-hover-transition-duration: 150ms; */
+	--toolbarbutton-icon-fill-opacity: 1;
+/* 	--toolbarbutton-inner-padding: 12px !important; */
+/* 	--toolbarbutton-outer-padding: 4px !important; */
+
+	--urlbar-popup-action-color: var(--color-fg) !important;
+	--urlbar-popup-url-color: var(--color-fg) !important;
+	--urlbar-separator-color: var(--color-bg) !important;
+	--urlbar-separator-color: var(--color-bg) !important;
+}
+
+/*
+======================================================================
+* Rules for urlbar + navbar buttons etc
+======================================================================
+*/
+
+#TabsToolbar{
+    background-color: var(--color-bg) !important;
+}
+
+/* This positions the tabs under the navaigator container */
+#titlebar {
+	-moz-box-ordinal-group: 3 !important;
+}
+
+.urlbar-history-dropmarker {
+    display: none;
+}
+
+.toolbarbutton-1 {
+	color: inherit !important;
+	fill: var(--color-fg) !important;
+	fill-opacity: 1 !important;
+}
+
+
+#navigator-toolbox {
+	--tabs-border-color: var(--color-bg) !important;
+	background-color: var(--color-bg) !important;
+	border: none !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: var(--tabs-container-height); /*This controls the height of the container that holds the tabs*/
+    color: var(--toolbar-non-lwt-textcolor) !important;
+}
+
+
+#back-button {
+	list-style-image: url("left-arrow.svg") !important;
+	margin-left: var(--margin-before-back-button) !important;
+	opacity: 1 !important;
+}
+
+#forward-button {
+	list-style-image: url("right-arrow.svg") !important;
+	opacity: 1 !important;
+}
+
+.titlebar-spacer {
+	display: none !important;
+}
+
+
+
+/*
+======================================================================
+* Rules for Tabs
+======================================================================
+*/
+.tab-line,
+.tab-background,
+.tabbrowser-tab::before,
+.tabbrowser-tab::after {
+	display: none;
+}
+
+.tabbrowser-tab .tab-close-button{
+    opacity: 0;
+    visibility: collapse !important;
+    transition: all 0.2s ease-in !important;
+}
+
+.tab-loading-burst {
+	border-radius: var(--tab-corner) !important;
+}
+
+.tabbrowser-tab {
+	margin-inline-end: var(--gap-between-tabs) !important;
+	--tab-line-color: none !important;
+	background-image: linear-gradient(to left, var(--color-tab-normal-start), var(--color-tab-normal-end)) !important;
+	border-radius: var(--tab-corner) !important;
+    margin: 0px 2px 0px !important;
+    transition: all 200ms ease-in-out !important;
+}
+
+.tabbrowser-tab .tab-icon-image {
+    display: inline-block !important;
+    margin: 0 !important;
+}
+
+.tabbrowser-tab:hover {
+	background-image: linear-gradient(77deg, var(--color-tab-hover-start), var(--color-tab-hover-end)) !important;
+	border-radius: var(--tab-corner) !important;
+}
+
+.tabbrowser-tab[selected="true"] {
+	background-image: linear-gradient(77deg, var(--color-tab-active-start), var(--color-tab-active-end)) !important;
+	border: none !important;
+}
+
+.tabbrowser-tab[selected=true]:hover .tab-close-button {
+    visibility: visible !important;
+    opacity: 1;
+    transition: all 0.2s ease-in !important;
+}
+
+.tabbrowser-tab[selected=true] .tab-icon-image,
+.tabbrowser-tab:not([selected=true]):hover .tab-icon-image {
+    margin-right: 5px !important;;
+}
+
+.tabbrowser-tab:not([selected="true"]) {
+    background-image: linear-gradient(77deg, var(--color-tab-hover-start), var(--color-tab-hover-end)) !important;
+	border: none !important;
+	border-radius: var(--tab-corner);
+    -moz-box-flex: 0 !important;
+    --tab-min-width: px;
+}
+
+.tabbrowser-tab:not([selected="true"]):hover {
+    --tab-min-width: 200px;
+}
+
+.private-browsing-indicator {
+    display: none;
+}
+/* 
+.tabbrowser-tab[selected=true] .tab-label-container {
+	display: initial;
+} */
+
+
 /********************************************************************************************************************************************************/
 /* https://github.com/moamenk/Firefox-Minimal-Responsive-Theme */
 /* Contextual toolbar buttons, only show on hover */
@@ -124,20 +368,20 @@
 
 :root:not([customizing]) #nav-bar toolbarbutton
  {
-    margin-left: -28px !important;
+    margin-left: -28px !important; 
     opacity: 0 !important;
     transform: scale(.85, .85) !important;
     pointer-events: none !important;
-    transition: all 100ms var(--animation-easing-function) !important;
+    transition: all 500ms var(--animation-easing-function) !important;
 }
 
 :root:not([customizing]) :hover > #nav-bar toolbarbutton,
 :root:not([customizing]) #navigator-toolbox:focus-within #nav-bar toolbarbutton,
 :root:not([customizing]) :hover > #titlebar toolbarbutton {
     transform: scale(1, 1) !important;
-opacity:1 !important;
-margin-left:0 !important;
-pointer-events: auto !important;
+    opacity:1 !important;
+    margin-left:0 !important;
+    pointer-events: auto !important;
 }
 
 /* Transparent addressbar */
@@ -152,7 +396,7 @@ pointer-events: auto !important;
 #urlbar, .searchbar-textbox {
   border: none !important;
   box-shadow: none !important;
-  background-color: var(--toolbar-bgcolor) !important
+  background-color: transparent !important
 }
 
 #nav-bar {
@@ -165,13 +409,5 @@ pointer-events: auto !important;
 /*     color: #ebdbb2 !important; */
     background-color: transparent !important;
 }
-/*******************************************************/
 
-/* Scrollbar */
-/*toolbarbutton#alltabs-button {
-    -moz-binding: url("userChrome.xml#js");
-}
-*/
 
-/********************************************************/
-/* https://github.com/turing753/minimal-functional-fox */
