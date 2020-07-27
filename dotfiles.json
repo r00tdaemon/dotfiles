@@ -2,7 +2,15 @@
   "link": {
     ".config": "",
     ".local": "",
-    ".Xresources": ""
+    ".Xresources": "",
+    "re": {
+      ".mozilla/userChrome.css": "~/.mozilla/firefox/.*\.default/chrome/"
+    }
+  },
+  "copy": {
+    "sudo":{
+      "usr": ""
+    }
   }
 }
 

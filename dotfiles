@@ -4,36 +4,92 @@ import os
 import json
 import argparse
 
-with open("dotfiles.json") as f:
-    dotfiles = json.load(f)
 
-parser = argparse.ArgumentParser()
-parser.add_argument("-f", "--force", action="store_true")
-args = parser.parse_args()
+def link(dotfiles: dict, force: bool):
+    for src, dest in dotfiles["link"].items():
+        # If no destination given link in $HOME
+        if not dest:
+            dest = os.path.expanduser("~")
 
-for src, dest in dotfiles["link"].items():
-    if not dest:
-        dest = os.path.expanduser("~")
+        # Traverse directory and link each file
+        if os.path.isdir(src):
+            for path, subdirs, files in os.walk(src):
+                for name in files:
+                    target = os.path.join(os.path.abspath(path), name)
+                    link_name = os.path.join(dest, path, name)
 
-    if os.path.isdir(src):
-        for path, subdirs, files in os.walk(src):
-            for name in files:
-                target = os.path.join(os.path.abspath(path), name)
-                link_name = os.path.join(dest, path, name)
-
-                try:
-                    os.symlink(target, link_name)
-                except FileExistsError:
-                    if args.force:
-                        os.remove(link_name)
+                    try:
                         os.symlink(target, link_name)
-    else:
-        target = os.path.abspath(src)
-        link_name = os.path.join(dest, src)
+                    except FileExistsError:
+                        if force:
+                            os.remove(link_name)
+                            os.symlink(target, link_name)
+        else:
+            target = os.path.abspath(src)
+            link_name = os.path.join(dest, src)
 
-        try:
-            os.symlink(target, link_name)
-        except FileExistsError:
-            if args.force:
-                os.remove(link_name)
+            try:
                 os.symlink(target, link_name)
+            except FileExistsError:
+                if force:
+                    os.remove(link_name)
+                    os.symlink(target, link_name)
+
+
+operations = {
+    "link": lambda target, link: os.symlink(target, link),
+    # "copy": lambda src, dest: shutil.copyfile(src, dst)
+}
+
+mods = ["re", "sudo"]
+
+
+def doop(op, dots, args):
+    pass
+
+    for src, dest in dots.items():
+        append_path = False
+        if not dest:
+            dest = os.path.expanduser("~")
+            append_path = True
+
+        if os.path.isdir(src):
+            for path, subdirs, files in os.walk(src):
+                for name in files:
+                    # target = os.path.join(os.path.abspath(path), name)
+                    # link_name = os.path.join(dest, path, name)
+
+                    try:
+                    # os.symlink(target, link_name)
+                    except FileExistsError:
+                        if args.force:
+                    # os.remove(link_name)
+                    # os.symlink(target, link_name)
+        else:
+            # target = os.path.abspath(src)
+            # link_name = os.path.join(dest, src)
+
+            try:
+            # os.symlink(target, link_name)
+            except FileExistsError:
+                if args.force:
+            # os.remove(link_name)
+            # os.symlink(target, link_name)
+
+
+def runit():
+    with open("dotfiles.json") as f:
+        dotfiles = json.load(f)
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-f", "--force", action="store_true")
+    args = parser.parse_args()
+
+    link(dotfiles, args.force)
+
+    for op in dotfiles.keys():
+        doop(op, dotfiles[op], args)
+
+
+if __name__ == '__main__':
+    runit()
